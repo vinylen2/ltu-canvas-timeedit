@@ -8,11 +8,20 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    snackbar: {
+      state: true,
+      timeout: 2000,
+      text: 'HÄR',
+      color: 'success',
+    },
     reservations: [],
     columns: [],
     reservationsToApi: [],
   },
   mutations: {
+    snackbar: (state, data) => {
+      state.snackbar = data;
+    },
     reservationsToApi: (state, data) => {
       data.forEach(reservation => state.reservationsToApi.push(reservation));
     },
